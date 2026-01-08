@@ -70,13 +70,14 @@ mixed_vector<-c(10,29.56,22L,TRUE,"Hello",49,FALSE,"Hi")
 missing_vector<-c(44,55," ",66,NA,77)
 rep_example
 math_vector<-c(math=45,social=67,name="gouthami") 
+names(math_vector) #to find the column names of a vector
 math_vector
-math_vector["math"]
-math_vector[1]
-length(mixed_vector)
-mixed_vector[2:5]
-char_vector[3]
-char_vector[-4]
+math_vector["math"] #Accessing with lable
+math_vector[1] #accessing with index position
+length(mixed_vector) #Accessing length of a vector
+mixed_vector[2:5] #Accessing with ratio
+char_vector[3] #Accessing with 3rd position value
+char_vector[-4] #Accessing all values except 4th position value
 
 #sorting a vector
 sort(num_vector, decreasing = TRUE) #sorting only values
@@ -86,14 +87,59 @@ order(num_vector)
 #O/P:---hi gouthami 90 R docker hello shiny
 paste0("Hello", mixed_vector[8]," ",math_vector["name"]," ",num_vector[6]+num_vector[4]," ",char_vector[2]," ",char_vector[6],mixed_vector[5],char_vector[1])
 max(num_vector)
-unique(rep_example)
+unique(rep_example) #to find uniques in a vector
 length(rep_example)
 length(unique(rep_example))
 #find out the second highest number of rep_example
 unique(min(rep_example)+1)
 
+#update the value of c# value in char_vector
+char_vector[4]<-"c"
+char_vector
+math_vector["social"]<-89
+math_vector
+math_vector[c("math","name")]<-c(47,"JAva") #updating multiple values 
+math_vector
 
+#deleting a value
+mixed_vector[-3]
+mixed_vector
+mixed_vector[c(-2,-5)]
 
+missing_vector
+resule<-is.na(missing_vector)
+resule
+unique(resule)
+which(resule) # finding the position of NA
+missing_vector[which(resule)]<-77
+missing_vector
+length(missing_vector)
+numer_vector<-c(10,NA, 20, 30,NA,50,60,70,NA,80,NA,100,NA,200)
+numer_result<-is.na(numer_vector)
+numer_result
+unique(numer_result)
+which(numer_result)
+numer_vector[is.na(numer_vector)]<-2000
+numer_vector
+#replace missing value
+#find out missing vales
 
+gender<-c("male","female","male","female","male","female")
+category<-c("catA","catB","catC","catD","catA","catB")
+name<-c("gita","sita","gita","ram","ram","sita")
 
-
+#DataFrame 
+#creating a data frame
+example_dataset<-data.frame(name,num_vector,char_vector,gender,category)
+#data exploratory functions
+View(example_dataset)
+unique(example_dataset["category"])
+factor(example_dataset$gender) #finding the factor levels 
+names(example_dataset) #to find out the column names
+colnames(example_dataset) 
+head(example_dataset,2)
+tail(example_dataset, 2)
+summary(example_dataset)
+str(example_dataset) #structure of a dataframe
+nrow(example_dataset) #number of rows
+dim(example_dataset) #number of diamensions 

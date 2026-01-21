@@ -67,6 +67,9 @@ result1
 char_vector<-c("shiny","R","java","c#","spring", "docker")
 num_vector<-c(50,20,70,10,30,90)
 mixed_vector<-c(10,29.56,22L,TRUE,"Hello",49,FALSE,"Hi")
+class(mixed_vector)
+is.vector(mixed_vector)
+length(mixed_vector)
 missing_vector<-c(44,55," ",66,NA,77)
 rep_example
 math_vector<-c(math=45,social=67,name="gouthami") 
@@ -143,3 +146,32 @@ summary(example_dataset)
 str(example_dataset) #structure of a dataframe
 nrow(example_dataset) #number of rows
 dim(example_dataset) #number of diamensions 
+class(example_dataset)
+
+
+
+#creating a List
+list_variable<-list(100,500,200,700," ","Hello","HI",gender,name)
+View(list_variable)
+
+#Converting a vector into List (Type Conversion)
+result<-as.list(mixed_vector)
+is.list(result)
+View(result)
+name_list<-list(c(600,400,900,16),max=c(800,47,58,97), student=c("sita","CSE"),200,"R")
+
+#Accessing a value in list
+name_list$max
+name_list[[5]][1]
+name_list$max
+name_list$max[3]
+name_list[[1]][2:3]
+
+resulet_list<-c(name_list[[4]][1], name_list[[5]][1])
+class(resulet_list)
+
+#updating vales in list
+name_list$student[1]<-"Ram"
+
+name_list$student[-1]
+name_list[-1]
